@@ -16,6 +16,7 @@ namespace dmotion {
 
     private:
         // 这些是单个腿上的关节值
+        // 这些关节值都以机器人初值基础为零点,按照惯用旋转方向为正方向给出数值的
         double hip_yaw_;
         double hip_roll_;
         double hip_pitch_;
@@ -42,13 +43,20 @@ namespace dmotion {
         // 为了方便理解和调参,这里的RPY变换根据以下描述进行变换
         // 起始状态脚坐标系B和此处的世界坐标系A坐标轴方向重合,先绕Z_a转yaw角,再绕Y_b转pitch角,最后绕X_b转roll角.
         // 输出从上到下的共6个舵机角度值(角度值).
-        static std::vector<double> &LegInvKin(std::vector<double> &foot_pose,
-                                              bool isRight);
+        std::vector<double> &LegInvKin(std::vector<double> &foot_pose);
 
-        // 余弦定理的逆定理,用三角形三边求角度值
+        // 余弦定理的逆定理,用三角形三边求角(返回角度值)
         inline double CosineTheorem(const double &edge_1,
                                     const double &edge_2,
-                                    const double &edge_opppsite)
+                                    const double &edge_opppsite);
+
+        // 使用数量积获得两向量的夹角(返回角度值)
+        inline double GetDelta(const double &x_1, const double &y_1, const double &z_1,
+                               const double &x_2, const double &y_2, const double &z_2);
+
+        // 重载二维向量的GetDelta
+        inline double GetDelta(const double &x_1, const double &y_1,
+                               const double &x_2, const double &y_2);
 
 
     };

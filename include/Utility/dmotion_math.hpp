@@ -38,10 +38,36 @@ namespace dmotion {
     }
 
     /**
+     * vector的角度值到弧度值的转换
+     */
+    template<typename Scalar>
+    inline std::vector<Scalar> &Deg2Rad(std::vector<Scalar> &deg) {
+        int size = deg.size();
+        for (int i = 0; i < size; i++) {
+            deg.push_back(Deg2Rad(deg[i]));
+        }
+        deg.erase(deg.begin(), deg.begin() + size);
+        return deg;
+    }
+
+    /**
+     * vector的角度值到弧度值的转换
+     */
+    template<typename Scalar>
+    inline std::vector<Scalar> &Rad2Deg(std::vector<Scalar> &rad) {
+        int size = rad.size();
+        for (int i = 0; i < size; i++) {
+            rad.push_back(Rad2Deg(rad[i]));
+        }
+        rad.erase(rad.begin(), rad.begin() + size);
+        return rad;
+    }
+
+    /**
      * vector模版类的全局输出
      */
     template<class T>
-    inline void PrintVector(const std::vector <T> &vectorOb) {
+    inline void PrintVector(const std::vector<T> &vectorOb) {
         for (unsigned i = 0; i < vectorOb.size(); i++)
             std::cout << " " << vectorOb[i];
         std::cout << std::endl;

@@ -1,9 +1,9 @@
 # InverseKinematics
-A new inverse kinematics for biped robot, whose leg has six degrees of freedom orthogonally.
+A new inverse kinematics for humanoid biped robot, whose leg has six degrees of freedom orthogonally.
 
 ## Prerequisites
 
-The inverse kinematics module depends on Eigen3. Install Eigen3 in advance.
+The inverse kinematics module depends on Eigen3. Please install Eigen3 in advance.
 
 ## Parameters
 
@@ -18,16 +18,13 @@ For different-planned robots, the geometry parameters differ. So you have to cha
 
 ## Important function
 
-The constructor of InvKin class should be given your object is right leg or not.
+The constructor of InvKin class should be given whether your object is right leg or not.
 
-- LegInvKin
-  - input: The position(x,y,z) and orientation(r,p,y) of one foot.
-  - output: Angles of each joint in the order from up to down.
+- LegInvKin()
+  - **Input**: The position(x,y,z) and orientation(r,p,y) of one foot.
+  - **output**: Angles of each joint in the order from up to down.
+- CosineTheorem()
 
-- CosineTheorem
-
-  - using the law of cosines to get one angle's value in a triangle.
-
-- GetDelta
-
-  - get the angle between two vector(2D or 3D).
+  - Using the law of cosines to get one angle's value in a triangle.
+- GetDelta()
+  - Get the angle between two vector(2D or 3D).

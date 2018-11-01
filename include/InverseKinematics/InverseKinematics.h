@@ -27,12 +27,12 @@ namespace dmotion {
     public:
         // 静态常成员变量便于调用,这些参数比较固定,机器人装好后一般绝对不会变,故没有写在参数文件中
         // 参数的单位是cm
-        constexpr static double upper_leg_length = 12.0;  //大腿的长度
-        constexpr static double lower_leg_length = 12.0;  //小腿的长度
-        constexpr static double ankle_from_ground = 3.5;  //脚踝距离地面的高度
-        constexpr static double half_hip_width = 4.5;     //两髋关节点距离的一半,相当于髋关节点相对于身体中心原点的y方向坐标
-        constexpr static double hip_x_from_origin = 0;    //髋关节点相对于身体中心原点的x方向坐标
-        constexpr static double hip_z_from_origin = -8.0; //髋关节点相对于身体中心原点的z
+        static const double upper_leg_length;  //大腿的长度
+        static const double lower_leg_length;  //小腿的长度
+        static const double ankle_from_ground;  //脚踝距离地面的高度
+        static const double half_hip_width;     //两髋关节点距离的一半,相当于髋关节点相对于身体中心原点的y方向坐标
+        static const double hip_x_from_origin;    //髋关节点相对于身体中心原点的x方向坐标
+        static const double hip_z_from_origin; //髋关节点相对于身体中心原点的z
 
         // 构造函数简单的构造一下就可以
         InvKin(bool isRight);

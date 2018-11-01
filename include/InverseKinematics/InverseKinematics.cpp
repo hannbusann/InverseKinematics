@@ -11,6 +11,13 @@
 
 namespace dmotion {
 
+    const double InvKin::upper_leg_length = 12.0;  //大腿的长度
+    const double InvKin::lower_leg_length = 12.0;  //小腿的长度
+    const double InvKin::ankle_from_ground = 3.5;  //脚踝距离地面的高度
+    const double InvKin::half_hip_width = 4.5;     //两髋关节点距离的一半,相当于髋关节点相对于身体中心原点的y方向坐标
+    const double InvKin::hip_x_from_origin = 0;    //髋关节点相对于身体中心原点的x方向坐标
+    const double InvKin::hip_z_from_origin = -8.0; //髋关节点相对于身体中心原点的z
+
     InvKin::InvKin(bool isRight) {
         isRight_ = isRight;
         hip_yaw_ = 0;

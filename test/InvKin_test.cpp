@@ -12,13 +12,13 @@ int main(int argc, char **argv) {
 
 
 
+    InvKin right(true);
+    vector<double> l1 = {0, -27.5, -12.5, 0, 0, -30};
+    PrintVector(right.LegInvKin(l1));
+
     InvKin left(false);
-    for (int i = 0; i < 1000; i++) {
-        vector<double> xx = {13.423, 12.25, -20.1, 0, -90, 30};
-        left.LegInvKin(xx);
-    }
-    vector<double> xx = {13.423, 12.25, -20.1, 0, -90, 30};
-    PrintVector(left.LegInvKin(xx));
+    vector<double> l2 = {0,27.5, -12.5, 0 , 0 , 30};
+    PrintVector(left.LegInvKin(l2));
 
 
     /**弧度制和角度制互相转换的演示**/

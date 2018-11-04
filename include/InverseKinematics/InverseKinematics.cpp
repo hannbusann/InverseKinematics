@@ -2,6 +2,7 @@
 // Created by zjudancer on 18-10-29.
 // E-mail: zjufanwu@zju.edu.cn
 // TODO 站在地上的机器人逆运动学
+// TODO 把一些临时变量替换为成员变量
 
 #include "InverseKinematics.h"
 #include <iostream>

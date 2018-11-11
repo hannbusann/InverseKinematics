@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
     PrintVector(right.LegInvKin(l1));
 
     InvKin left(false);
-    vector<double> l2 = {0,27.5, -12.5, 0 , 0 , 30};
+    vector<double> l2 = {0, 27.5, -12.5, 0, 0, 30};
     PrintVector(left.LegInvKin(l2));
 
 
@@ -25,6 +25,9 @@ int main(int argc, char **argv) {
     vector<double> yy = {180, 90, 0, -90, -270};
     PrintVector(Deg2Rad(yy));
     PrintVector(Rad2Deg(yy));
+
+
+
 
     return 0;
 }

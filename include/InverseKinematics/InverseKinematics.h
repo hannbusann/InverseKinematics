@@ -13,7 +13,7 @@ namespace dmotion {
 
     class InvKin {
 
-    private:
+    public:
         // 这些是单个腿上的关节值
         // 这些关节值都以机器人初值基础为零点,按照惯用旋转方向为正方向给出数值的
         double hip_yaw_;
@@ -24,6 +24,35 @@ namespace dmotion {
         double ankle_roll_;
         // 是左腿还是右腿
         bool isRight_;
+
+    private:
+        // 以下都是一些计算过程中需要使用到的参数,不需要理解
+        double foot_vertical_x;
+        double foot_vertical_y;
+        double foot_vertical_z;
+        double ankle_x_to_hip;
+        double ankle_y_to_hip;
+        double ankle_z_to_hip;
+        double ankle_norm;
+        double ankle_axis_x;
+        double ankle_axis_y;
+        double ankle_axis_z;
+        double vertical_x;
+        double vertical_z;
+        double vertical_unitz;
+        double hip_yaw_delta;
+        double ankle_to_hip_yaw_roll_x;
+        double ankle_to_hip_yaw_roll_z;
+        double hip_pitch_absolute;
+        double foot_hip_rpy_x;
+        double foot_hip_rpy_y;
+        double foot_hip_rpy_z;
+        double ankle_pitch_absolute;
+        std::vector<double> finals;
+
+
+
+
     public:
         // 静态常成员变量便于调用,这些参数比较固定,机器人装好后一般绝对不会变,故没有写在参数文件中
         // 存在几何改动时到InverseKinematics.cpp中改动
@@ -46,18 +75,6 @@ namespace dmotion {
         std::vector<double> LegInvKin(std::vector<double> &foot_pose);
 
 
-        // 余弦定理的逆定理,用三角形三边求角(返回角度值)
-        inline double CosineTheorem(const double &edge_1,
-                                    const double &edge_2,
-                                    const double &edge_opppsite);
-
-        // 使用数量积获得两向量的夹角(返回角度值)
-        inline double GetDelta(const double &x_1, const double &y_1, const double &z_1,
-                               const double &x_2, const double &y_2, const double &z_2);
-
-        // 重载二维向量的GetDelta
-        inline double GetDelta(const double &x_1, const double &y_1,
-                               const double &x_2, const double &y_2);
 
 
     };

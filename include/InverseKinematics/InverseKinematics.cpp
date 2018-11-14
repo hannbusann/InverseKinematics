@@ -145,7 +145,7 @@ namespace dmotion {
         }
         /** 获得只经过yaw和roll变换后的-z_unit向量和上面这个向量的夹角
          * 获得hip_pitch_**/
-        hip_pitch_absolute = std::atan(ankle_to_hip_yaw_roll_x / (-ankle_to_hip_yaw_roll_z));
+        hip_pitch_absolute = dmotion::Atan(ankle_to_hip_yaw_roll_x , (-ankle_to_hip_yaw_roll_z));
         hip_pitch_ = hip_pitch_absolute + dmotion::CosineTheorem(upper_leg_length, ankle_norm, lower_leg_length);
         /** 这里获得脚底向下的向量在经过hip的ypr变换之后的坐标系中的坐标**/
         if (!isRight_) {

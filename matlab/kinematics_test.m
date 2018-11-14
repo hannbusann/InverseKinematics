@@ -92,25 +92,63 @@ close all
 
 %%
 %这里测试脚踝的结算
-syms yyfuck ppfuck rrfuck afuck bfuck cfuck
-Y_symbol=[  cos(yyfuck)     -sin(yyfuck)    0;
-            sin(yyfuck)     cos(yyfuck)     0;
-            0           0           1];
-
-P_symbol=[  cos(ppfuck)     0           sin(ppfuck);
-            0           1           0      ;
-            -sin(ppfuck)    0           cos(ppfuck)];
-        
-R_symbol=[  1           0           0       ;
-            0           cos(rrfuck)     -sin(rrfuck);
-            0           sin(rrfuck)     cos(rrfuck) ];
-
-
-T_r_symbol = Y_symbol*R_symbol*P_symbol;
-P_a_symbol = [afuck; bfuck; cfuck];
-P_b_symbol = simplify(T_r_symbol\P_a_symbol)
+% syms yyfuck ppfuck rrfuck afuck bfuck cfuck
+% Y_symbol=[  cos(yyfuck)     -sin(yyfuck)    0;
+%             sin(yyfuck)     cos(yyfuck)     0;
+%             0           0           1];
+% 
+% P_symbol=[  cos(ppfuck)     0           sin(ppfuck);
+%             0           1           0      ;
+%             -sin(ppfuck)    0           cos(ppfuck)];
+%         
+% R_symbol=[  1           0           0       ;
+%             0           cos(rrfuck)     -sin(rrfuck);
+%             0           sin(rrfuck)     cos(rrfuck) ];
+% 
+% 
+% T_r_symbol = Y_symbol*R_symbol*P_symbol;
+% P_a_symbol = [afuck; bfuck; cfuck];
+% P_b_symbol = simplify(T_r_symbol\P_a_symbol)
 
 %%
-P_b_symbol = [0;0;-1];
-P_a_symbol = T_r_symbol*P_b_symbol
+% P_b_symbol = [0;0;-1];
+% P_a_symbol = T_r_symbol*P_b_symbol
+
+%%
+% 算全身逆运动学
+syms rr pp yy rr1 pp1 yy1 
+Y=       [  cos(yy1)     -sin(yy1)    0;
+            sin(yy1)     cos(yy1)     0;
+            0           0           1];
+
+P=       [  cos(pp1)     0           sin(pp1);
+            0           1           0      ;
+            -sin(pp1)    0           cos(pp1)];
+
+R=       [  1           0           0       ;
+            0           cos(rr1)     -sin(rr1);
+            0           sin(rr1)     cos(rr1) ];
+% 反推     
+Y2=[ cos(-yy)     -sin(-yy)    0;
+            sin(-yy)     cos(-yy)     0;
+            0           0           1];
+
+P2=[ cos(-pp)     0           sin(-pp);
+            0           1           0      ;
+            -sin(-pp)    0           cos(-pp)];
+
+R2=[ 1           0           0       ;
+            0           cos(-rr)     -sin(-rr);
+            0           sin(-rr)     cos(-rr) ];
+
+T=simplify(R2*P2*Y2)
+Q=simplify(Y*P*R)
+
+
+%%
+syms xxf yyf zzf
+M=Y*P*R;
+A_P = [xxf; yyf;zzf];
+simplify(M\A_P)
+
 

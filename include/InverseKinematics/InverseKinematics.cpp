@@ -216,7 +216,7 @@ namespace dmotion {
     }
 
     /**
-     * 两条腿配合逆运动学对象的构造函数
+     * 两条腿逆运动学对象的构造函数
      * @param ankle_distance_y
      */
     WholeBodyIK::WholeBodyIK(const double ankle_distance_y) : left_leg_(false), right_leg_(true) {
@@ -239,7 +239,7 @@ namespace dmotion {
     }
 
     /**
-     * 两条腿配合逆运动学对象的构造函数的重载，为了应对两个脚不是平时状态的情况
+     * 两条腿逆运动学对象的构造函数的重载，为了应对两个脚不是平时状态的情况
      * @param ankle_distance 踝关节间距
      */
     WholeBodyIK::WholeBodyIK(const double ankle_distance_x, const double ankle_distance_y,

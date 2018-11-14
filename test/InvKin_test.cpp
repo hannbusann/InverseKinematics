@@ -11,19 +11,17 @@ int main(int argc, char **argv) {
      */
 
 
-//
-//    InvKin right(true);
-//    vector<double> l1 = {0, -4.5, -26, 0, 30, 0};
-//    cout << "第一个" << endl;
-//    PrintVector(right.LegInvKin(l1));
+    cout << "第一个" << endl;
+    InvKin right(true);
+    vector<double> l1 = {0, -4.5, -26, 0, 30, 0};
+    PrintVector(right.LegInvKin(l1));
 
+    cout << "左腿" << endl;
     InvKin left(false);
     vector<double> l2 = {3.5, 4.5, -31, 0, -91, 0};
-    cout << "左腿" << endl;
     PrintVector(left.LegInvKin(l2));
 
     cout << "制度测试" << endl;
-    /**弧度制和角度制互相转换的演示**/
     vector<double> yy = {180, 90, 0, -90, -270};
     PrintVector(Deg2Rad(yy));
     PrintVector(Rad2Deg(yy));

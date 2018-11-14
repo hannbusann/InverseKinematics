@@ -1,7 +1,6 @@
 //
 // Created by zjudancer on 18-10-29.
 // E-mail: zjufanwu@zju.edu.cn
-// TODO 站在地上的机器人逆运动学
 //
 
 #include "InverseKinematics.h"

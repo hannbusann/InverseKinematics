@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 
     cout << "左腿" << endl;
     InvKin left(false);
-    vector<double> l2 = {-0.4782838 ,7.5843488 ,-37.6305573 ,6.0000000 ,-0.0000000 ,5.0000000 };
+    vector<double> l2 = {0.8274281 ,4.9324105 ,-37.9379753 ,-3.9951202 ,-3.9975593 ,0.8601751 };
     PrintVector(left.LegInvKin(l2));
 
     cout << "制度测试" << endl;

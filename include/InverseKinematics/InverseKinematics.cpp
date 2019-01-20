@@ -58,7 +58,7 @@ namespace dmotion {
      * @param foot_pose 脚底的x y z r p y
      * @return
      */
-    std::vector<double> InvKin::LegInvKin(std::vector<double> &foot_pose) {
+    std::vector<double> InvKin::LegInvKin(std::vector<double> foot_pose) {
         /** 下面三个坐标是脚踝点相对于髋关节点的坐标 **/
         foot_pose[3] = dmotion::Deg2Rad(foot_pose[3]);
         foot_pose[4] = dmotion::Deg2Rad(foot_pose[4]);
@@ -179,7 +179,7 @@ namespace dmotion {
                              foot_vertical_x * std::cos(-hip_pitch_absolute) * std::sin(-hip_roll_) *
                              std::sin(-hip_yaw_);
             ankle_pitch_absolute = dmotion::Atan(foot_hip_rpy_x, -foot_hip_rpy_z);
-
+q
 
             ankle_pitch_ =
                     ankle_pitch_absolute + dmotion::CosineTheorem(lower_leg_length, ankle_norm, upper_leg_length);

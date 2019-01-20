@@ -70,7 +70,7 @@ namespace dmotion {
         // 为了方便理解和调参,这里的RPY变换根据以下描述进行变换
         // 起始状态脚坐标系B和此处的世界坐标系A坐标轴方向重合,先绕Z_a转yaw角,再绕Y_b转pitch角,最后绕X_b转roll角.
         // 输出从上到下的共6个舵机角度值(角度值).
-        std::vector<double> LegInvKin(std::vector<double> &foot_pose);
+        std::vector<double> LegInvKin(std::vector<double> foot_pose);
 
 
     };
